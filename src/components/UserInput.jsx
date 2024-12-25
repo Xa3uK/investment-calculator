@@ -1,4 +1,15 @@
-function UserInput() {
+function UserInput(props) {
+    const {
+        initialInvestment,
+        annualInvestment,
+        expectedReturn,
+        duration,
+        setInitialInvestment,
+        setAnnualInvestment,
+        setExpectedReturn,
+        setDuration,
+    } = props;
+
     return (
         <div id="user-input">
             <div className="input-group">
@@ -7,9 +18,10 @@ function UserInput() {
                     <input
                         id="initial-investment"
                         type="number"
-                        defaultValue="10000"
+                        value={initialInvestment}
                         step="any"
                         min="0"
+                        onChange={(e) => setInitialInvestment(Number(e.target.value))}
                     />
                 </div>
                 <div>
@@ -17,9 +29,10 @@ function UserInput() {
                     <input
                         id="annual-investment"
                         type="number"
-                        defaultValue="300"
+                        value={annualInvestment}
                         step="any"
                         min="0"
+                        onChange={(e) => setAnnualInvestment(Number(e.target.value))}
                     />
                 </div>
             </div>
@@ -29,9 +42,10 @@ function UserInput() {
                     <input
                         id="expected-return"
                         type="number"
-                        defaultValue="5.5"
+                        value={expectedReturn}
                         step="0.5"
                         min="0"
+                        onChange={(e) => setExpectedReturn(Number(e.target.value))}
                     />
                 </div>
                 <div>
@@ -39,9 +53,10 @@ function UserInput() {
                     <input
                         id="duration"
                         type="number"
-                        defaultValue="12"
+                        value={duration}
                         step="1"
                         min="0"
+                        onChange={(e) => setDuration(Number(e.target.value))}
                     />
                 </div>
             </div>
