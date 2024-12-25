@@ -13,7 +13,7 @@ function UserInput(props) {
     return (
         <div id="user-input">
             <div className="input-group">
-                <div>
+                <p>
                     <label htmlFor="initial-investment">Initial Investment</label>
                     <input
                         id="initial-investment"
@@ -23,8 +23,8 @@ function UserInput(props) {
                         min="0"
                         onChange={(e) => setInitialInvestment(Number(e.target.value))}
                     />
-                </div>
-                <div>
+                </p>
+                <p>
                     <label htmlFor="annual-investment">Annual Investment</label>
                     <input
                         id="annual-investment"
@@ -34,7 +34,7 @@ function UserInput(props) {
                         min="0"
                         onChange={(e) => setAnnualInvestment(Number(e.target.value))}
                     />
-                </div>
+                </p>
             </div>
             <div className="input-group">
                 <div>
