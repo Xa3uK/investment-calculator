@@ -1,34 +1,33 @@
-import React, { useState } from "react";
-import './index.css';
+import React, {useState} from "react";
 import Header from './components/Header.jsx';
 import UserInput from "./components/UserInput.jsx";
 import Result from "./components/Result.jsx";
 
 function App() {
-    const [initialInvestment, setInitialInvestment] = useState(10000);
-    const [annualInvestment, setAnnualInvestment] = useState(1200);
-    const [expectedReturn, setExpectedReturn] = useState(6);
-    const [duration, setDuration] = useState(10);
+    const [userInput, setUserInput] = useState({
+        initialInvestment: 10000,
+        annualInvestment: 1200,
+        expectedReturn: 6,
+        duration: 10,
+    });
+
+    function handleChange(keyIdentifier, newValue) {
+        setUserInput((prevState) => {
+            return {
+                ...prevState,
+                [keyIdentifier]: newValue,
+            }
+        });
+    }
 
     return (
         <>
-            <Header />
+            <Header/>
             <UserInput
-                annualInvestment={annualInvestment}
-                initialInvestment={initialInvestment}
-                expectedReturn={expectedReturn}
-                duration={duration}
-                setInitialInvestment={setInitialInvestment}
-                setAnnualInvestment={setAnnualInvestment}
-                setExpectedReturn={setExpectedReturn}
-                setDuration={setDuration}
+                userInput={userInput}
+                handleChange={handleChange}
             />
-            <Result
-                initialInvestment={initialInvestment}
-                annualInvestment={annualInvestment}
-                expectedReturn={expectedReturn}
-                duration={duration}
-            />
+            <Result userInput={userInput}/>
         </>
     );
 }

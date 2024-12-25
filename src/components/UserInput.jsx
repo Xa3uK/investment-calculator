@@ -1,15 +1,4 @@
-function UserInput(props) {
-    const {
-        initialInvestment,
-        annualInvestment,
-        expectedReturn,
-        duration,
-        setInitialInvestment,
-        setAnnualInvestment,
-        setExpectedReturn,
-        setDuration,
-    } = props;
-
+function UserInput({userInput, handleChange}) {
     return (
         <div id="user-input">
             <div className="input-group">
@@ -18,10 +7,10 @@ function UserInput(props) {
                     <input
                         id="initial-investment"
                         type="number"
-                        value={initialInvestment}
+                        value={userInput.initialInvestment}
                         step="any"
                         min="0"
-                        onChange={(e) => setInitialInvestment(Number(e.target.value))}
+                        onChange={(e) => handleChange('initialInvestment', Number(e.target.value))}
                     />
                 </p>
                 <p>
@@ -29,10 +18,10 @@ function UserInput(props) {
                     <input
                         id="annual-investment"
                         type="number"
-                        value={annualInvestment}
+                        value={userInput.annualInvestment}
                         step="any"
                         min="0"
-                        onChange={(e) => setAnnualInvestment(Number(e.target.value))}
+                        onChange={(e) => handleChange('annualInvestment', Number(e.target.value))}
                     />
                 </p>
             </div>
@@ -42,10 +31,10 @@ function UserInput(props) {
                     <input
                         id="expected-return"
                         type="number"
-                        value={expectedReturn}
+                        value={userInput.expectedReturn}
                         step="0.5"
                         min="0"
-                        onChange={(e) => setExpectedReturn(Number(e.target.value))}
+                        onChange={(e) => handleChange('expectedReturn', Number(e.target.value))}
                     />
                 </div>
                 <div>
@@ -53,10 +42,10 @@ function UserInput(props) {
                     <input
                         id="duration"
                         type="number"
-                        value={duration}
+                        value={userInput.duration}
                         step="1"
                         min="0"
-                        onChange={(e) => setDuration(Number(e.target.value))}
+                        onChange={(e) => handleChange('duration', Number(e.target.value))}
                     />
                 </div>
             </div>
